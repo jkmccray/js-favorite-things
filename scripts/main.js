@@ -33,6 +33,18 @@ storeFieldset.appendChild(storeLabel)
 storeFieldset.appendChild(storeInput)
 favoriteThings.appendChild(saveBtn)
 
-// saveBtn.addEventListener("click", () => {
-//   const 
-// })
+saveBtn.addEventListener("click", () => {
+  const thing = nameInput.value
+  const location = storeInput.value
+  if (thing === "" || location === "") {
+    alert("Enter a thing and store")
+    return
+  } else {
+    const newDiv = elFactory("div", {}, `I can purchase ${thing} at ${location}.`)
+    favoriteThings.appendChild(newDiv)
+    nameInput.value = null
+    storeInput.value = null
+    nameInput.focus()
+  }
+})
+
